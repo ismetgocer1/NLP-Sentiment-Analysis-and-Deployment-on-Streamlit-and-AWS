@@ -19,7 +19,9 @@ nltk.download('wordnet')
 nltk.download('punkt')
 
 # En ustteki GIF icin;
-st.image('https://media.tenor.com/B5qsCUFIXIwAAAAC/3ds-nintendo.gif', caption='Your Deram Clothes in Here!', use_column_width=True) 
+#st.image('https://media.tenor.com/B5qsCUFIXIwAAAAC/3ds-nintendo.gif', caption='Your Deram Clothes in Here!', use_column_width=True) 
+st.image('https://media.tenor.com/B5qsCUFIXIwAAAAC/3ds-nintendo.gif', caption='Your Dream Clothes in Here!', width=300)
+
 
 #Baslik ekliyoruz
 st.markdown('<h2 style="font-size:1.5em;">Sentiment Analysis for Women Clothes Review</h2>', unsafe_allow_html=True)
