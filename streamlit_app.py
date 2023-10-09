@@ -80,7 +80,7 @@ if st.button("Submit"):
                 st.image('https://www.funimada.com/assets/images/cards/big/congrats-14.gif', caption='You are happy, then we are happy, too!', use_column_width=True) # Alkis eklemek icin
                 st.balloons()
             else:
-                st.image('https://media.tenor.com/8VTZmmkwyEkAAAAC/stop-crying-wipe-tears.gif', caption='Don't worry, we will solve your problem ASAP!', use_column_width=True)
+                st.image('https://media.tenor.com/8VTZmmkwyEkAAAAC/stop-crying-wipe-tears.gif', caption="Don't worry, we will solve your problem ASAP!", use_column_width=True)
                 #snow un devreye girmesi icin 
                 st.snow() 
                                
