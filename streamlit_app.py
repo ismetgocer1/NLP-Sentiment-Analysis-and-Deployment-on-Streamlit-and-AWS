@@ -98,7 +98,15 @@ if st.button("Submit"):
     </div>
     """, unsafe_allow_html=True)
                 
-                st.snow()
+                #snow un devreye girmesi icin 
+                st.markdown("""
+    <style>
+    /* Snow efekti için CSS kodu */
+    </style>
+    <script>
+    // Snow efekti için JavaScript kodu
+    </script>
+    """, unsafe_allow_html=True)
                 
                 # Resmin altindaki yaziyi ortalamak icin
                 st.markdown("""<style>.center-text {display: flex; justify-content: center; align-items: center; } </style> """, unsafe_allow_html=True)
