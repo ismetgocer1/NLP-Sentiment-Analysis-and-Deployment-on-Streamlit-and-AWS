@@ -98,7 +98,7 @@ if st.button("Submit"):
     </div>
     """, unsafe_allow_html=True)
                 
-                st.snow() 
+                <body class="snowflake"></body> 
                                
                 # Resmin altindaki yaziyi ortalamak icin
                 st.markdown("""<style>.center-text {display: flex; justify-content: center; align-items: center; } </style> """, unsafe_allow_html=True)
