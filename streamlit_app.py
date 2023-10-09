@@ -96,17 +96,8 @@ if st.button("Submit"):
     <div class="container">
         <img src="https://media1.giphy.com/media/9JLOGsEfPjpR1179HE/giphy.gif?cid=ecf05e47r98iy0koitbvmx08df4rt0e3ue2k6t3btrljvvrl&ep=v1_gifs_search&rid=giphy.gif&ct=g" class="gif"/>
     </div>
-    """, unsafe_allow_html=True)
-                
-                # Create a separate HTML file with your snowfall effect
-                with open("snowfall.html", "w") as f:
-                    f.write("""
-                        <header class="snowflake"></header>
-                    """)
-                
-                # Display the HTML file in the header of your Streamlit app
-                st.write(f"<iframe src='snowfall.html' style='width: 100%; height: 100%;'></iframe>", header=True)
-                               
+    """, unsafe_allow_html=True)                
+                                              
                 # Resmin altindaki yaziyi ortalamak icin
                 st.markdown("""<style>.center-text {display: flex; justify-content: center; align-items: center; } </style> """, unsafe_allow_html=True)
 
