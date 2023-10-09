@@ -33,9 +33,10 @@ selected_model = st.sidebar.selectbox("Choose a Method", ['1.NaiveBayes', '2.Log
 # Text Area
 #user_input = st.text_area("Please enter a review without any punctual or number:")
 #user_input = st.text_area("Please enter a review without any punctual or number:", height=10)
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 with col1:
-    user_input = st.text_area("Please enter a review without any punctual or number:", height=50)
+    user_input = st.text_area("Please enter a review without any punctual or number:", height=200)
+
 
 
 
