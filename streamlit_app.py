@@ -6,7 +6,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle
 import streamlit as st
 
-# Try to load stopwords, if not download
+# Download necessary NLTK data if not present
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
 try:
     stop_words = set(stopwords.words('english'))
 except LookupError:
