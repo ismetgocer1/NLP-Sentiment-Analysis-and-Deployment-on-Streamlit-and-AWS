@@ -80,6 +80,9 @@ if st.button("Submit"):
                 st.image('https://www.funimada.com/assets/images/cards/big/congrats-14.gif', caption='You are happy, then we are happy, too!', use_column_width=True) # Alkis eklemek icin
                 st.balloons()
             else:
+                #snow un devreye girmesi icin 
+                st.markdown()
+                
                 # Uzgun GIF'i kullanmak icin;
                 st.markdown("""
     <style>
@@ -99,14 +102,8 @@ if st.button("Submit"):
     """, unsafe_allow_html=True)
                 
                 #snow un devreye girmesi icin 
-                st.markdown("""
-    <style>
-    /* Snow efekti için CSS kodu */
-    </style>
-    <script>
-    // Snow efekti için JavaScript kodu
-    </script>
-    """, unsafe_allow_html=True)
+                st.markdown()
+   
                 
                 # Resmin altindaki yaziyi ortalamak icin
                 st.markdown("""<style>.center-text {display: flex; justify-content: center; align-items: center; } </style> """, unsafe_allow_html=True)
