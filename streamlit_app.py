@@ -1,6 +1,8 @@
+import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle  # Hem vektörleyici hem de modeller için
 import streamlit as st
@@ -9,8 +11,12 @@ import requests
 from io import BytesIO
 
 
+
 # Stop words
+nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
+nltk.download('wordnet')
+nltk.download('punkt')
 
 # En ustteki GIF icin;
 st.image('https://media.tenor.com/B5qsCUFIXIwAAAAC/3ds-nintendo.gif', caption='Your Deram Clothes in Here!', use_column_width=True) 
