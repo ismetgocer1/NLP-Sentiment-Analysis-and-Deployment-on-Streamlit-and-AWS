@@ -80,7 +80,7 @@ if st.button("Submit"):
                 st.image('https://www.funimada.com/assets/images/cards/big/congrats-14.gif', caption='You are happy, then we are happy, too!', use_column_width=True) # Alkis eklemek icin
                 st.balloons()
             else:
-                st.image('https://www.funimada.com/assets/images/cards/big/congrats-14.gif', caption='Don't worry, we will solve your problem ASAP!', use_column_width=True)
+                st.image('https://media1.giphy.com/media/9JLOGsEfPjpR1179HE/giphy.gif?cid=ecf05e47r98iy0koitbvmx08df4rt0e3ue2k6t3btrljvvrl&ep=v1_gifs_search&rid=giphy.gif&ct=g" class="gif"', caption='Don't worry, we will solve your problem ASAP!', use_column_width=True)
                 #snow un devreye girmesi icin 
                 st.snow() 
                                
