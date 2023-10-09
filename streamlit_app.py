@@ -5,6 +5,9 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle
 import streamlit as st
+import os
+
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
 
 # Download necessary NLTK data if not present
 try:
