@@ -19,7 +19,7 @@ nltk.download('wordnet')
 nltk.download('punkt')
 
 # En ustteki GIF icin;
-st.image('https://media.tenor.com/B5qsCUFIXIwAAAAC/3ds-nintendo.gif', caption='Your Dream Clothes in Here!', width=400)
+st.image('https://media.tenor.com/B5qsCUFIXIwAAAAC/3ds-nintendo.gif', caption='Your Dream Clothes in Here!', width=450)
 
 
 #Baslik ekliyoruz
