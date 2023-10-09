@@ -4,7 +4,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
-import pickle  # Hem vektörleyici hem de modeller için
+import pickle  
 import streamlit as st
 from PIL import Image
 import requests
