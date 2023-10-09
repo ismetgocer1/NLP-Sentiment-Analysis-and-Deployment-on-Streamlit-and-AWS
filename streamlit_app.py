@@ -1,49 +1,56 @@
-import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-import pickle
+import pickle  # Hem vektörleyici hem de modeller için
 import streamlit as st
-import os
+from PIL import Image
+import requests
+from io import BytesIO
 
-nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
 
-# Download necessary NLTK data if not present
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
+# Stop words
+stop_words = set(stopwords.words('english'))
 
-try:
-    stop_words = set(stopwords.words('english'))
-except LookupError:
-    nltk.download('stopwords')
-    stop_words = set(stopwords.words('english'))
+# En ustteki GIF icin;
+st.image('https://media.tenor.com/B5qsCUFIXIwAAAAC/3ds-nintendo.gif', caption='Your Deram Clothes in Here!', use_column_width=True) 
 
-# Streamlit UI
-st.image('https://media.tenor.com/B5qsCUFIXIwAAAAC/3ds-nintendo.gif', caption='Your Dream Clothes in Here!', use_column_width=True)
+#Baslik ekliyoruz
 st.markdown('<h2 style="font-size:1.5em;">Sentiment Analysis for Women Clothes Review</h2>', unsafe_allow_html=True)
 
-# Sidebar
+
+# Side Bar
 st.sidebar.title("Please Select a Method")
 selected_model = st.sidebar.selectbox("Choose a Method", ['1.NaiveBayes', '2.LogisticRegression', '3.SVM', '4.KNN', '5.RandomForest', '6.AdaBoost'])
+
+# Text Area
 user_input = st.text_area("Please enter a review without any punctual or number:")
 
 # Data Cleaning
 def cleaning(data):
+    # Tokenize
     text_tokens = word_tokenize(data.lower())
+    
+    # Remove Puncs and numbers
     tokens_without_punc = [w for w in text_tokens if w.isalpha()]
+    
+    # Remove Stopwords
     tokens_without_sw = [t for t in tokens_without_punc if t not in stop_words]
+    
+    # Lemmatization
     text_cleaned = [WordNetLemmatizer().lemmatize(t) for t in tokens_without_sw]
+    
+    # Joining
     return " ".join(text_cleaned)
 
-# Load model
+# Load the selected model
 try:
-    with open(f"{selected_model}.pkl", 'rb') as f:
+    model_filename = f"{selected_model}.pkl"
+    with open(model_filename, 'rb') as f:
         model = pickle.load(f)
 except FileNotFoundError:
-    st.write(f"Model {selected_model}.pkl could not be found.")
+    st.write(f"Model {model_filename} could not be found.")
+
 
 # Submit Button
 if st.button("Submit"):
@@ -52,17 +59,54 @@ if st.button("Submit"):
         st.write("0: Positive review.")
         st.write("1: Negative review.")
         
+        # Kaydedilmiş vektörleyiciyi pickle ile yükle
+        with open('tf_idf_vectorizer.pkl', 'rb') as f:
+            loaded_vectorizer = pickle.load(f)
+        
+        # Yalnızca transform kullan
+        user_input_tf_idf = loaded_vectorizer.transform([user_input])  # Note the list
+
         try:
-            with open('tf_idf_vectorizer.pkl', 'rb') as f:
-                loaded_vectorizer = pickle.load(f)
-            user_input_tf_idf = loaded_vectorizer.transform([cleaning(user_input)])
-            
+                       
             result = model.predict(user_input_tf_idf)
             st.write("Result: ", result[0])
-            # ... (the rest of your code)
-        except FileNotFoundError:
-            st.write("TF-IDF vectorizer file could not be found.")
+            
+            if result==0:
+                st.image('https://www.funimada.com/assets/images/cards/big/congrats-14.gif', caption='You are happy, then we are happy, too!', use_column_width=True) # Alkis eklemek icin
+                st.balloons()
+            else:
+                # Uzgun GIF'i kullanmak icin;
+                st.markdown("""
+    <style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gif {
+        width: 200px;
+        height: 200px;
+    }
+    </style>
+    <div class="container">
+        <img src="https://media1.giphy.com/media/9JLOGsEfPjpR1179HE/giphy.gif?cid=ecf05e47r98iy0koitbvmx08df4rt0e3ue2k6t3btrljvvrl&ep=v1_gifs_search&rid=giphy.gif&ct=g" class="gif"/>
+    </div>
+    """, unsafe_allow_html=True)
+                
+                st.snow()
+                
+                # Resmin altindaki yaziyi ortalamak icin
+                st.markdown("""<style>.center-text {display: flex; justify-content: center; align-items: center; } </style> """, unsafe_allow_html=True)
+
+                # Resmin altina gelen yazi
+                st.markdown('<div class="center-text">We are very sad for hearing it.</div>', unsafe_allow_html=True)
+                st.markdown('<div class="center-text">Please calm down!</div>', unsafe_allow_html=True)
+                st.markdown('<div class="center-text">We will solve this problem ASAP.</div>', unsafe_allow_html=True)
+                
+                           
+
         except Exception as e:
             st.write(f"An error occurred: {e}")
+
     else:
         st.write("Please enter a valid review.")
