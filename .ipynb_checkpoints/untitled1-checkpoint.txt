@@ -1,0 +1,26 @@
+import streamlit as st
+import pickle
+import pandas as pd
+import joblib
+
+st.header("CAR PRICE PREDICTION")
+
+#sidebar
+st.sidebar.title("Sidebar title")
+st.sidebar.markdown("## This is a markdown")
+a=st.sidebar.slider("input",0,5,2,1)
+st.write("# sidebar input result")
+st.success(a*a)
+
+#header / subheader (alt başlık)
+st.header("This is HEADER")
+st.subheader ("This is subheader")
+
+st.markdown(
+    """
+    <div style='background-color: orange; padding: 10px;'>
+    <h1 style='color: white; text-align: center;'>Streamlit Arayüzü</h1>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
