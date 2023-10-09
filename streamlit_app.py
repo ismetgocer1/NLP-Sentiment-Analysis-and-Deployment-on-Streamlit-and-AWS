@@ -62,9 +62,8 @@ except FileNotFoundError:
 if st.button("Submit"):
     if user_input:
         st.write("Your review was received, and analysis began.")
-        st.write("0: Positive review.")
-        st.write("1: Negative review.")
-        
+        st.write("0: Positive review;  1: Negative review")
+                
         # Kaydedilmiş vektörleyiciyi pickle ile yükle
         with open('tf_idf_vectorizer.pkl', 'rb') as f:
             loaded_vectorizer = pickle.load(f)
