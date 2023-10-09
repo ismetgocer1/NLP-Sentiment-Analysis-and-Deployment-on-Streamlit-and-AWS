@@ -19,7 +19,6 @@ nltk.download('wordnet')
 nltk.download('punkt')
 
 # En ustteki GIF icin;
-#st.image('https://media.tenor.com/B5qsCUFIXIwAAAAC/3ds-nintendo.gif', caption='Your Deram Clothes in Here!', use_column_width=True) 
 st.image('https://media.tenor.com/B5qsCUFIXIwAAAAC/3ds-nintendo.gif', caption='Your Dream Clothes in Here!', width=500)
 
 
@@ -32,7 +31,9 @@ st.sidebar.title("Please Select a Method")
 selected_model = st.sidebar.selectbox("Choose a Method", ['1.NaiveBayes', '2.LogisticRegression', '3.SVM', '4.KNN', '5.RandomForest', '6.AdaBoost'])
 
 # Text Area
-user_input = st.text_area("Please enter a review without any punctual or number:")
+#user_input = st.text_area("Please enter a review without any punctual or number:")
+user_input = st.text_area("Please enter a review without any punctual or number:", height=200)
+
 
 # Data Cleaning
 def cleaning(data):
