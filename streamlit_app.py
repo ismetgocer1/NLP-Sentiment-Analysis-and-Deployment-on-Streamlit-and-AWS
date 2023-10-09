@@ -98,7 +98,14 @@ if st.button("Submit"):
     </div>
     """, unsafe_allow_html=True)
                 
-                <body class="snowflake"></body> 
+                # Create a separate HTML file with your snowfall effect
+                with open("snowfall.html", "w") as f:
+                    f.write("""
+                        <header class="snowflake"></header>
+                    """)
+                
+                # Display the HTML file in the header of your Streamlit app
+                st.write(f"<iframe src='snowfall.html' style='width: 100%; height: 100%;'></iframe>", header=True)
                                
                 # Resmin altindaki yaziyi ortalamak icin
                 st.markdown("""<style>.center-text {display: flex; justify-content: center; align-items: center; } </style> """, unsafe_allow_html=True)
